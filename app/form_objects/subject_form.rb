@@ -6,7 +6,7 @@ class SubjectForm < Reform::Form
   property :dalc 
 
   validates :user_id, :age, :walc, :dalc, presence: true
-  validates :age, numericality: { only_integer: true, less_than_or_equal_to: 22,  greater_than_or_equal_to: 15 }
+  validates :age, numericality: { only_integer: true, less_than_or_equal_to: 26,  greater_than_or_equal_to: 15 }
   validates :dalc, :walc, numericality: { only_integer: true, less_than_or_equal_to: 5,  greater_than_or_equal_to: 1 }
 
     def save_form(attr = {})
