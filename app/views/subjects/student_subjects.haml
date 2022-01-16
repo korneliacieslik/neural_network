@@ -1,0 +1,15 @@
+%h1 My Predictions
+
+-@subjects.each do |subject|
+  %ul.subjects{ style: "margin-bottom: 25px;"}
+    %li= "Age: #{subject.age}"
+    %li= "Weekend alcohol consumption: #{alcohol_conumption(subject.walc)}"
+    %li= "Workday alcohol consumption: #{alcohol_conumption(subject.dalc)}"	
+    %li
+      - if subject.success?
+        .alert.alert-success
+          ="I will pass the final exam"
+      - else 
+        .alert.alert-danger   
+          ="I will fail the final exam" 
+= will_paginate 

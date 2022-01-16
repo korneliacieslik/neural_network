@@ -1,0 +1,15 @@
+%h1 Log in
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(resource, as: resource_name, url: session_path(resource_name))  do |f|
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+      = f.label :remember_me, class: "checkbox inline", style: "margin-left: 21px;" do
+        = f.check_box :remember_me
+        %span Remember me on this computer
+      = f.submit "Log in", class: "btn btn-primary"
+    %p
+      New user? #{link_to "Sign up now!", new_user_registration_path} 
+      = render 'devise/shared/error_messages'

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "Title"%></title>
+    <meta charset="utf-8">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all',
+                                           'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Neural network app", '#', id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "My predictions", my_predictions_path %></li>
+          <li><%= link_to "Make prediction", new_subject_path %></li>
+          <li><%= link_to "Predictions", subjects_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          <li>
+            <%= link_to learn_model_path, method: :post do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+              </svg>
+            <% end %>
+          </li> 
+        </ul> 
+      </div>
+    </header>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

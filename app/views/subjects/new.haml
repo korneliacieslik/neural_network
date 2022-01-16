@@ -1,0 +1,13 @@
+%h1 Will you be successful?
+.row
+  .col-md-6.col-md-offset-3
+    = form_with(model: @form, local: true) do |f|
+      = render 'shared/error_messages'
+      = f.label :age
+      = f.text_field :age, class: 'form-control'
+      = f.label 'Weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)'
+      = f.text_field :walc, class: 'form-control'
+      = f.label 'Workday alcohol consumption (numeric: from 1 - very low to 5 - very high)' 
+      = f.text_field :dalc, class: 'form-control'
+      = f.submit "Make prediction!", class: "btn btn-primary"        
+  
